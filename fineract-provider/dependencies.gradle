@@ -17,10 +17,15 @@
  * under the License.
  */
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     implementation(project(path: ':fineract-core'))
     implementation(project(path: ':fineract-investor'))
     implementation(project(path: ':fineract-loan'))
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.0.3'
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
     // Never use "compile" scope, but make all dependencies either 'implementation', 'runtimeOnly' or 'testCompile'.
@@ -171,6 +176,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor 'org.mapstruct:mapstruct-processor'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
     implementation 'ch.qos.logback.contrib:logback-json-classic'
     implementation 'ch.qos.logback.contrib:logback-jackson'
